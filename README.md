@@ -1,4 +1,4 @@
-# Grupo 2.1 - Sour Kanji
+# Grupo 15 - Sour Kanji
 
 1. Felipe Banin de Carvalho
 1. Dilermando Queiroz Neto
