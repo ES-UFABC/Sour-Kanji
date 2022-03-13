@@ -1,6 +1,7 @@
 # Sour Kanji
 
 [![GitHub license](https://img.shields.io/github/license/ES-UFABC/AgriFacil?style=for-the-badge)](https://github.com/ES-UFABC/Sour-Kanji/blob/main/LICENSE)
+<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/771cc18a712bf9edb0925a86164c34b0d803c4d9177dd4467eff7b777109c723/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176612d4544384230303f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661266c6f676f436f6c6f723d7768697465"><img src="https://camo.githubusercontent.com/771cc18a712bf9edb0925a86164c34b0d803c4d9177dd4467eff7b777109c723/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176612d4544384230303f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&amp;logo=java&amp;logoColor=white" style="max-width:100%;"></a>
 
 Um aplicativo android/ios que visa fornecer um aprendizado de japonês mais engajante
 para o estudante (e sim, o nome é um trocadilho com sour candy).
