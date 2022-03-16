@@ -38,3 +38,46 @@ https://apps.ankiweb.net
 
 # Licença
 Sour Kanji is licensed under the MIT License
+
+📋 Sobre
+O Projeto ASPAS é uma rede social de educação criado dentro do Bootcamp Desenvolvedor Web Full Stack Java Júnior da Generation Brasil com o objetivo de conectar Educadores e alunos do ensino fundamental e médio.
+
+🚀 Tecnologias Utilizadas
+O Projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+Front-End
+Angular
+JavaScript
+HTML5
+CSS3
+Bootstrap
+Visual Studio Code
+Back-End
+Java
+MySQL
+Spring Boot
+Postman
+📁 Como baixar o projeto
+#Clonar o repositório Back-End
+$ git clone https://github.com/ChrisAmantino/projeto-aspas.git
+
+# Abrir o repositório Back-End no Spring e iniciar a aplicação
+
+----------------------------------------------------------------------------------------------------------
+
+# Clonar o repositório Front-End
+$ git clone https://github.com/ChrisAmantino/projeto-aspas-front-end.git
+
+# Instalar o node.js caso não possua
+
+# Entrar no diretório Front-End
+$ cd projeto-aspas
+
+#Instalar o angular
+$ npm install -g @angular/cli
+
+#Instalar as dependências
+$ npm install
+
+# Iniciar o projeto
+$ ng serve
