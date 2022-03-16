@@ -71,14 +71,14 @@ O Projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ```bash
 #Clonar o repositório Back-End
-$ git clone https://github.com/ChrisAmantino/projeto-aspas.git
+$ git clone https://github.com/ES-UFABC/Sour-Kanji.git
 
 # Abrir o repositório Back-End no Spring e iniciar a aplicação
 
 ----------------------------------------------------------------------------------------------------------
 
 # Clonar o repositório Front-End
-$ git clone https://github.com/ChrisAmantino/projeto-aspas-front-end.git
+$ git clone https://github.com/ES-UFABC/Sour-Kanji.git
 
 # Instalar o node.js caso não possua
 
