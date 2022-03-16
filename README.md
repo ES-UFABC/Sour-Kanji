@@ -39,12 +39,6 @@ https://apps.ankiweb.net
 # Licença
 Sour Kanji is licensed under the MIT License
 
-<h1 align="center">
-    <img src="https://i.imgur.com/FFEwm74.jpg">
-</h1>
-<h1 align="center">
-    <img src="https://ik.imagekit.io/1is0y7xpsdn/Teste-gif-final_jqXjIBs1dp.gif">
-</h1>
 
 ## 📋 Sobre
 
