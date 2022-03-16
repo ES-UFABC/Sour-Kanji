@@ -42,7 +42,9 @@ Sour Kanji is licensed under the MIT License
 
 ## 📋 Sobre
 
-O Projeto **ASPAS** é uma rede social de  educação criado dentro do **Bootcamp Desenvolvedor Web Full Stack Java Júnior da Generation Brasil** com o objetivo de conectar Educadores e alunos do ensino fundamental e médio.
+Um aplicativo android/ios que visa fornecer um aprendizado de japonês mais engajante para o estudante (e sim, o nome é um trocadilho com sour candy).
+
+A ferramenta incluirá lições de radicais, kanjis e vocabulário utilizando mnemônicos textuais e imagéticos, a revisão dos mesmos será determinada de acordo com os erros e acertos do usuário. Haverá notificações de disponibilidade de lições e revisões novas e as mesmas serão passíveis de ajustes pelo próprio usuário. Idealmente incluirá sons para estudo de pronúncia, mas não será garantido no momento.
 
 
 ## 🚀 Tecnologias Utilizadas
