@@ -1,15 +1,17 @@
 package com.sourkanji.sourkanjibackend.service;
 
-import java.nio.charset.Charset;
-import java.util.Optional;
-
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
+import com.sourkanji.sourkanjibackend.model.UserLoginModel;
 import com.sourkanji.sourkanjibackend.model.UsuarioModel;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
+import java.nio.charset.Charset;
+import java.util.Optional;
+import org.apache.commons.codec.binary.Base64;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
+@Service
 public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
@@ -22,8 +24,8 @@ public class UsuarioService {
 		usuario.setSenhaUsuario(senhaEncoder);
 		return Optional.of(repository.save(usuario));
 	}
-
-	public Optional<UserLogin> Logar(Optional<UserLogin> user) {
+ 
+	public Optional<UserLoginModel> Logar(Optional<UserLoginModel> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<UsuarioModel> usuario = repository.findByEmailUsuario(user.get().getEmailUsuario());
 		if (usuario.isPresent()) {
@@ -31,13 +33,13 @@ public class UsuarioService {
 				String auth = user.get().getEmailUsuario() + ":" + user.get().getSenhaUsuario();
 				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				String authHeader = "Basic " + new String(encodedAuth);
-				user.get().setTipoUsuario(usuario.get().getTipoUsuario());
 				user.get().setToken(authHeader);
 				user.get().setNomeCompleto(usuario.get().getNomeCompleto());
 				return user;
 			}
 		}
 		return null;
-	}
+		
+	} 
 
 }
