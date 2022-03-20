@@ -53,7 +53,7 @@ https://apps.ankiweb.net
 ```bash
 
 #Clonar o repositório
-$ git clone git clone https://github.com/ES-UFABC/Sour-Kanji.git
+$ git clone https://github.com/ES-UFABC/Sour-Kanji.git
 
 # Abrir o repositório Back-End no Spring e iniciar a aplicação
 
