@@ -18,9 +18,16 @@ class _SplashPageState extends ModularState<SplashPage, SplashControler> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text("Sour Kanji"),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Sour Kanji"),
+            const SizedBox(height: 15),
+            CircularProgressIndicator(),
+          ],
+        ),
       ),
     );
   }

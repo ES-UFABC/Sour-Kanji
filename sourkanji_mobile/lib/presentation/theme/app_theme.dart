@@ -9,6 +9,7 @@ part 'buttons_theme.dart';
 part 'text_theme.dart';
 part 'app_bar_theme.dart';
 part 'input_theme.dart';
+part 'progress_indicator_theme.dart';
 
 class AppTheme {
   static ThemeData? _theme;
@@ -19,6 +20,7 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
       appBarTheme: const _AppBarTheme(),
       textTheme: const _TextTheme(),
+      progressIndicatorTheme: const _ProgressIndicatorTheme(),
       inputDecorationTheme: _InputTheme(),
       // sliderTheme: _SliderTheme(),
       elevatedButtonTheme: _ElevatedButtonThemeData(),
