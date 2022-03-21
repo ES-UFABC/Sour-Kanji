@@ -4,12 +4,12 @@ class _ElevatedButtonThemeData extends ElevatedButtonThemeData {
   _ElevatedButtonThemeData()
       : super(
           style: ButtonStyle(
-            padding: const EdgeInsets.all(8).mspAll(),
+            padding: const EdgeInsets.all(16).mspAll(),
             backgroundColor: AppColors.primary.mspAll(),
-            foregroundColor:
-                MaterialStateProperty.all<Color>(AppColors.baseFontColor),
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             textStyle: const TextStyle(
-              fontSize: 14,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
             ).mspAll(),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))

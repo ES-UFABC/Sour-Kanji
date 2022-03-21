@@ -8,6 +8,7 @@ import 'app_colors.dart';
 part 'buttons_theme.dart';
 part 'text_theme.dart';
 part 'app_bar_theme.dart';
+part 'input_theme.dart';
 
 class AppTheme {
   static ThemeData? _theme;
@@ -18,6 +19,7 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
       appBarTheme: const _AppBarTheme(),
       textTheme: const _TextTheme(),
+      inputDecorationTheme: _InputTheme(),
       // sliderTheme: _SliderTheme(),
       elevatedButtonTheme: _ElevatedButtonThemeData(),
     );

@@ -17,8 +17,15 @@ dependencies:
   bloc: ^8.0.2
   flutter_bloc: ^8.0.1
 
+  logger: ^1.1.0
   dartz: ^0.10.0
   freezed_annotation: ^0.15.0
+
+  flutter_native_splash: ^2.1.1
+
+  # Local Storage
+  hive: ^2.1.0
+  hive_flutter: ^1.1.0
 
   intl:
   flutter:
