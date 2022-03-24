@@ -3,7 +3,7 @@ start_database:
 stop_database:
 	docker-compose stop db
 start_all:
-	mkdir -p /opt/database/mysql/sourjkanjibackend 
+	mkdir -p ~/database/mysql/sourkanjibackend 
 	sudo docker-compose up --build
 
 clean:
