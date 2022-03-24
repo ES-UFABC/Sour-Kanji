@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  db:
+    image: mysql
+    platform: linux/arm64/linux86_64
+    container_name: mysql_server
+    command: --default-authentication-plugin=mysql_native_password
+    network_mode: bridge
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "abacatinho"
+    ports:
+      - "0.0.0.0:3306:3306"
+    volumes:
+      - type: bind
+        source: ~/database/mysql/sourkanjibackend
+        target: /var/lib/mysql
+        
+  sourkanjibackend:
+    container_name: sourkanjibackend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: bridge
+    ports:
+      - "0.0.0.0:8080:8080"
+    depends_on:
+      - db
+    links:
+      - db
