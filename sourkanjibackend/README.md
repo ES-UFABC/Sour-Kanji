@@ -3,6 +3,7 @@
 Para executar a aplicação precisa apenas alterar o arquivo de application.properties de acordo com os valores comentados no arquivo.
 
 É necessário criar o diretorio para o volume mapeado de backup do banco caso desejar utilizar um banco populado.
+
 ```
 mkdir -p ~/database/mysql/sourkanjibackend
 ```
