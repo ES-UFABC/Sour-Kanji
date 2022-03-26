@@ -1,5 +1,6 @@
 library app_theme;
 
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sourkanji_mobile/shared/extensions/msp_extensions.dart';
 import 'package:flutter/material.dart';
 

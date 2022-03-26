@@ -27,10 +27,10 @@ class _InputTheme extends InputDecorationTheme {
             borderSide: BorderSide(color: AppColors.primary),
             borderRadius: BorderRadius.all(Radius.circular(inputBorderRadius)),
           ),
-          // focusedErrorBorder: const OutlineInputBorder(
-          //   borderSide: BorderSide(color: AppColors.red),
-          //   borderRadius: BorderRadius.all(Radius.circular(inputBorderRadius)),
-          // ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.alertRed),
+            borderRadius: BorderRadius.all(Radius.circular(inputBorderRadius)),
+          ),
           errorBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.alertRed),
             borderRadius: BorderRadius.all(Radius.circular(inputBorderRadius)),
