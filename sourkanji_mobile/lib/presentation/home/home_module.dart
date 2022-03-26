@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:sourkanji_mobile/presentation/home/auth_guard.dart';
+import 'package:sourkanji_mobile/presentation/guards/auth_guard.dart';
 import 'package:sourkanji_mobile/presentation/home/home_cubit.dart';
 import 'package:sourkanji_mobile/presentation/home/home_page.dart';
 
