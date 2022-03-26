@@ -1,19 +1,14 @@
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:sourkanji_mobile/shared/utils/app_logger.dart';
+import 'package:flutter/material.dart';
 
-class SessionService implements Disposable {
-  static SessionService get to => Modular.get();
-  static Future<SessionService> get toAsync => Modular.getAsync();
+class SessionService {
+  static final SessionService _sessionService = SessionService._internal();
 
-  bool get isAuth => false;
-
-  Future<SessionService> init() async {
-    // ignore: no_runtimetype_tostring
-    AppLogger.v('$runtimeType ready!');
-
-    return this;
+  factory SessionService() {
+    return _sessionService;
   }
 
-  @override
-  void dispose() {}
+  SessionService._internal();
+
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
 }

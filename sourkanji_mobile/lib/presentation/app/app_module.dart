@@ -7,7 +7,8 @@ import 'package:sourkanji_mobile/domain/services/session_service.dart';
 import 'package:sourkanji_mobile/infrastructure/auth/auth_repository.dart';
 import 'package:sourkanji_mobile/presentation/home/home_module.dart';
 import 'package:sourkanji_mobile/presentation/index/index_module.dart';
-import 'package:sourkanji_mobile/presentation/signin/signin_modular.dart';
+import 'package:sourkanji_mobile/presentation/signin/signin_module.dart';
+import 'package:sourkanji_mobile/presentation/signup/signup_module.dart';
 import 'package:sourkanji_mobile/presentation/splash/splash_module.dart';
 
 class AppModule extends Module {
@@ -19,15 +20,12 @@ class AppModule extends Module {
         AsyncBind<AuthService>(
           (i) => AuthService().init(),
         ),
-        AsyncBind<HttpService>(
+        Bind.singleton(
           (i) => HttpService().init(),
-        ),
-        AsyncBind<SessionService>(
-          (i) => SessionService().init(),
         ),
         Bind.lazySingleton<IAuthRepository>(
           (i) => AuthRepository(
-            client: i.get(),
+            client: i.get<HttpService>().client,
           ),
         ),
       ];
@@ -38,5 +36,6 @@ class AppModule extends Module {
         ModuleRoute(IndexModule.path, module: IndexModule()),
         ModuleRoute(HomeModule.path, module: HomeModule()),
         ModuleRoute(SigninModule.path, module: SigninModule()),
+        ModuleRoute(SignupModule.path, module: SignupModule()),
       ];
 }

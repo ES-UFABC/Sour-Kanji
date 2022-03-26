@@ -8,7 +8,9 @@ class SigninModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.singleton(
-          (i) => SigninCubit(),
+          (i) => SigninCubit(
+            authRepository: i.get(),
+          ),
         ),
       ];
 

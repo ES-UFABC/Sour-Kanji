@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 Loggable _$LoggableFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'signin':
-      return LoggableSignup.fromJson(json);
-    case 'signup':
       return LoggableSignin.fromJson(json);
+    case 'signup':
+      return LoggableSignup.fromJson(json);
     case 'authenticated':
       return LoggableAuthenticated.fromJson(json);
 
@@ -32,20 +32,20 @@ Loggable _$LoggableFromJson(Map<String, dynamic> json) {
 class _$LoggableTearOff {
   const _$LoggableTearOff();
 
-  LoggableSignup signin(
-      {required String nomeCompleto,
-      required String emailUsuario,
-      required String senhaUsuario}) {
-    return LoggableSignup(
-      nomeCompleto: nomeCompleto,
+  LoggableSignin signin(
+      {required String emailUsuario, required String senhaUsuario}) {
+    return LoggableSignin(
       emailUsuario: emailUsuario,
       senhaUsuario: senhaUsuario,
     );
   }
 
-  LoggableSignin signup(
-      {required String emailUsuario, required String senhaUsuario}) {
-    return LoggableSignin(
+  LoggableSignup signup(
+      {required String nomeCompleto,
+      required String emailUsuario,
+      required String senhaUsuario}) {
+    return LoggableSignup(
+      nomeCompleto: nomeCompleto,
       emailUsuario: emailUsuario,
       senhaUsuario: senhaUsuario,
     );
@@ -76,10 +76,10 @@ mixin _$Loggable {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String emailUsuario, String senhaUsuario) signin,
     required TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)
-        signin,
-    required TResult Function(String emailUsuario, String senhaUsuario) signup,
+        signup,
     required TResult Function(
             String nomeCompleto, String emailUsuario, String token)
         authenticated,
@@ -87,20 +87,20 @@ mixin _$Loggable {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
     TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
+        signup,
     TResult Function(String nomeCompleto, String emailUsuario, String token)?
         authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
     TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
+        signup,
     TResult Function(String nomeCompleto, String emailUsuario, String token)?
         authenticated,
     required TResult orElse(),
@@ -108,22 +108,22 @@ mixin _$Loggable {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoggableSignup value) signin,
-    required TResult Function(LoggableSignin value) signup,
+    required TResult Function(LoggableSignin value) signin,
+    required TResult Function(LoggableSignup value) signup,
     required TResult Function(LoggableAuthenticated value) authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
     TResult Function(LoggableAuthenticated value)? authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
     TResult Function(LoggableAuthenticated value)? authenticated,
     required TResult orElse(),
   }) =>
@@ -160,6 +160,187 @@ class _$LoggableCopyWithImpl<$Res> implements $LoggableCopyWith<$Res> {
               as String,
     ));
   }
+}
+
+/// @nodoc
+abstract class $LoggableSigninCopyWith<$Res>
+    implements $LoggableCopyWith<$Res> {
+  factory $LoggableSigninCopyWith(
+          LoggableSignin value, $Res Function(LoggableSignin) then) =
+      _$LoggableSigninCopyWithImpl<$Res>;
+  @override
+  $Res call({String emailUsuario, String senhaUsuario});
+}
+
+/// @nodoc
+class _$LoggableSigninCopyWithImpl<$Res> extends _$LoggableCopyWithImpl<$Res>
+    implements $LoggableSigninCopyWith<$Res> {
+  _$LoggableSigninCopyWithImpl(
+      LoggableSignin _value, $Res Function(LoggableSignin) _then)
+      : super(_value, (v) => _then(v as LoggableSignin));
+
+  @override
+  LoggableSignin get _value => super._value as LoggableSignin;
+
+  @override
+  $Res call({
+    Object? emailUsuario = freezed,
+    Object? senhaUsuario = freezed,
+  }) {
+    return _then(LoggableSignin(
+      emailUsuario: emailUsuario == freezed
+          ? _value.emailUsuario
+          : emailUsuario // ignore: cast_nullable_to_non_nullable
+              as String,
+      senhaUsuario: senhaUsuario == freezed
+          ? _value.senhaUsuario
+          : senhaUsuario // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$LoggableSignin implements LoggableSignin {
+  const _$LoggableSignin(
+      {required this.emailUsuario, required this.senhaUsuario, String? $type})
+      : $type = $type ?? 'signin';
+
+  factory _$LoggableSignin.fromJson(Map<String, dynamic> json) =>
+      _$$LoggableSigninFromJson(json);
+
+  @override
+  final String emailUsuario;
+  @override
+  final String senhaUsuario;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Loggable.signin(emailUsuario: $emailUsuario, senhaUsuario: $senhaUsuario)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoggableSignin &&
+            (identical(other.emailUsuario, emailUsuario) ||
+                other.emailUsuario == emailUsuario) &&
+            (identical(other.senhaUsuario, senhaUsuario) ||
+                other.senhaUsuario == senhaUsuario));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, emailUsuario, senhaUsuario);
+
+  @JsonKey(ignore: true)
+  @override
+  $LoggableSigninCopyWith<LoggableSignin> get copyWith =>
+      _$LoggableSigninCopyWithImpl<LoggableSignin>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailUsuario, String senhaUsuario) signin,
+    required TResult Function(
+            String nomeCompleto, String emailUsuario, String senhaUsuario)
+        signup,
+    required TResult Function(
+            String nomeCompleto, String emailUsuario, String token)
+        authenticated,
+  }) {
+    return signin(emailUsuario, senhaUsuario);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
+    TResult Function(
+            String nomeCompleto, String emailUsuario, String senhaUsuario)?
+        signup,
+    TResult Function(String nomeCompleto, String emailUsuario, String token)?
+        authenticated,
+  }) {
+    return signin?.call(emailUsuario, senhaUsuario);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
+    TResult Function(
+            String nomeCompleto, String emailUsuario, String senhaUsuario)?
+        signup,
+    TResult Function(String nomeCompleto, String emailUsuario, String token)?
+        authenticated,
+    required TResult orElse(),
+  }) {
+    if (signin != null) {
+      return signin(emailUsuario, senhaUsuario);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoggableSignin value) signin,
+    required TResult Function(LoggableSignup value) signup,
+    required TResult Function(LoggableAuthenticated value) authenticated,
+  }) {
+    return signin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
+    TResult Function(LoggableAuthenticated value)? authenticated,
+  }) {
+    return signin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
+    TResult Function(LoggableAuthenticated value)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (signin != null) {
+      return signin(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LoggableSigninToJson(this);
+  }
+}
+
+abstract class LoggableSignin implements Loggable {
+  const factory LoggableSignin(
+      {required String emailUsuario,
+      required String senhaUsuario}) = _$LoggableSignin;
+
+  factory LoggableSignin.fromJson(Map<String, dynamic> json) =
+      _$LoggableSignin.fromJson;
+
+  @override
+  String get emailUsuario;
+  String get senhaUsuario;
+  @override
+  @JsonKey(ignore: true)
+  $LoggableSigninCopyWith<LoggableSignin> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -213,7 +394,7 @@ class _$LoggableSignup implements LoggableSignup {
       required this.emailUsuario,
       required this.senhaUsuario,
       String? $type})
-      : $type = $type ?? 'signin';
+      : $type = $type ?? 'signup';
 
   factory _$LoggableSignup.fromJson(Map<String, dynamic> json) =>
       _$$LoggableSignupFromJson(json);
@@ -230,7 +411,7 @@ class _$LoggableSignup implements LoggableSignup {
 
   @override
   String toString() {
-    return 'Loggable.signin(nomeCompleto: $nomeCompleto, emailUsuario: $emailUsuario, senhaUsuario: $senhaUsuario)';
+    return 'Loggable.signup(nomeCompleto: $nomeCompleto, emailUsuario: $emailUsuario, senhaUsuario: $senhaUsuario)';
   }
 
   @override
@@ -258,43 +439,43 @@ class _$LoggableSignup implements LoggableSignup {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String emailUsuario, String senhaUsuario) signin,
     required TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)
-        signin,
-    required TResult Function(String emailUsuario, String senhaUsuario) signup,
+        signup,
     required TResult Function(
             String nomeCompleto, String emailUsuario, String token)
         authenticated,
   }) {
-    return signin(nomeCompleto, emailUsuario, senhaUsuario);
+    return signup(nomeCompleto, emailUsuario, senhaUsuario);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
     TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
+        signup,
     TResult Function(String nomeCompleto, String emailUsuario, String token)?
         authenticated,
   }) {
-    return signin?.call(nomeCompleto, emailUsuario, senhaUsuario);
+    return signup?.call(nomeCompleto, emailUsuario, senhaUsuario);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
     TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
+        signup,
     TResult Function(String nomeCompleto, String emailUsuario, String token)?
         authenticated,
     required TResult orElse(),
   }) {
-    if (signin != null) {
-      return signin(nomeCompleto, emailUsuario, senhaUsuario);
+    if (signup != null) {
+      return signup(nomeCompleto, emailUsuario, senhaUsuario);
     }
     return orElse();
   }
@@ -302,33 +483,33 @@ class _$LoggableSignup implements LoggableSignup {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoggableSignup value) signin,
-    required TResult Function(LoggableSignin value) signup,
+    required TResult Function(LoggableSignin value) signin,
+    required TResult Function(LoggableSignup value) signup,
     required TResult Function(LoggableAuthenticated value) authenticated,
   }) {
-    return signin(this);
+    return signup(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
     TResult Function(LoggableAuthenticated value)? authenticated,
   }) {
-    return signin?.call(this);
+    return signup?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
     TResult Function(LoggableAuthenticated value)? authenticated,
     required TResult orElse(),
   }) {
-    if (signin != null) {
-      return signin(this);
+    if (signup != null) {
+      return signup(this);
     }
     return orElse();
   }
@@ -355,187 +536,6 @@ abstract class LoggableSignup implements Loggable {
   @override
   @JsonKey(ignore: true)
   $LoggableSignupCopyWith<LoggableSignup> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LoggableSigninCopyWith<$Res>
-    implements $LoggableCopyWith<$Res> {
-  factory $LoggableSigninCopyWith(
-          LoggableSignin value, $Res Function(LoggableSignin) then) =
-      _$LoggableSigninCopyWithImpl<$Res>;
-  @override
-  $Res call({String emailUsuario, String senhaUsuario});
-}
-
-/// @nodoc
-class _$LoggableSigninCopyWithImpl<$Res> extends _$LoggableCopyWithImpl<$Res>
-    implements $LoggableSigninCopyWith<$Res> {
-  _$LoggableSigninCopyWithImpl(
-      LoggableSignin _value, $Res Function(LoggableSignin) _then)
-      : super(_value, (v) => _then(v as LoggableSignin));
-
-  @override
-  LoggableSignin get _value => super._value as LoggableSignin;
-
-  @override
-  $Res call({
-    Object? emailUsuario = freezed,
-    Object? senhaUsuario = freezed,
-  }) {
-    return _then(LoggableSignin(
-      emailUsuario: emailUsuario == freezed
-          ? _value.emailUsuario
-          : emailUsuario // ignore: cast_nullable_to_non_nullable
-              as String,
-      senhaUsuario: senhaUsuario == freezed
-          ? _value.senhaUsuario
-          : senhaUsuario // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$LoggableSignin implements LoggableSignin {
-  const _$LoggableSignin(
-      {required this.emailUsuario, required this.senhaUsuario, String? $type})
-      : $type = $type ?? 'signup';
-
-  factory _$LoggableSignin.fromJson(Map<String, dynamic> json) =>
-      _$$LoggableSigninFromJson(json);
-
-  @override
-  final String emailUsuario;
-  @override
-  final String senhaUsuario;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Loggable.signup(emailUsuario: $emailUsuario, senhaUsuario: $senhaUsuario)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is LoggableSignin &&
-            (identical(other.emailUsuario, emailUsuario) ||
-                other.emailUsuario == emailUsuario) &&
-            (identical(other.senhaUsuario, senhaUsuario) ||
-                other.senhaUsuario == senhaUsuario));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, emailUsuario, senhaUsuario);
-
-  @JsonKey(ignore: true)
-  @override
-  $LoggableSigninCopyWith<LoggableSignin> get copyWith =>
-      _$LoggableSigninCopyWithImpl<LoggableSignin>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String nomeCompleto, String emailUsuario, String senhaUsuario)
-        signin,
-    required TResult Function(String emailUsuario, String senhaUsuario) signup,
-    required TResult Function(
-            String nomeCompleto, String emailUsuario, String token)
-        authenticated,
-  }) {
-    return signup(emailUsuario, senhaUsuario);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
-    TResult Function(String nomeCompleto, String emailUsuario, String token)?
-        authenticated,
-  }) {
-    return signup?.call(emailUsuario, senhaUsuario);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
-    TResult Function(String nomeCompleto, String emailUsuario, String token)?
-        authenticated,
-    required TResult orElse(),
-  }) {
-    if (signup != null) {
-      return signup(emailUsuario, senhaUsuario);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoggableSignup value) signin,
-    required TResult Function(LoggableSignin value) signup,
-    required TResult Function(LoggableAuthenticated value) authenticated,
-  }) {
-    return signup(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
-    TResult Function(LoggableAuthenticated value)? authenticated,
-  }) {
-    return signup?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
-    TResult Function(LoggableAuthenticated value)? authenticated,
-    required TResult orElse(),
-  }) {
-    if (signup != null) {
-      return signup(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LoggableSigninToJson(this);
-  }
-}
-
-abstract class LoggableSignin implements Loggable {
-  const factory LoggableSignin(
-      {required String emailUsuario,
-      required String senhaUsuario}) = _$LoggableSignin;
-
-  factory LoggableSignin.fromJson(Map<String, dynamic> json) =
-      _$LoggableSignin.fromJson;
-
-  @override
-  String get emailUsuario;
-  String get senhaUsuario;
-  @override
-  @JsonKey(ignore: true)
-  $LoggableSigninCopyWith<LoggableSignin> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -636,10 +636,10 @@ class _$LoggableAuthenticated implements LoggableAuthenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String emailUsuario, String senhaUsuario) signin,
     required TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)
-        signin,
-    required TResult Function(String emailUsuario, String senhaUsuario) signup,
+        signup,
     required TResult Function(
             String nomeCompleto, String emailUsuario, String token)
         authenticated,
@@ -650,10 +650,10 @@ class _$LoggableAuthenticated implements LoggableAuthenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
     TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
+        signup,
     TResult Function(String nomeCompleto, String emailUsuario, String token)?
         authenticated,
   }) {
@@ -663,10 +663,10 @@ class _$LoggableAuthenticated implements LoggableAuthenticated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailUsuario, String senhaUsuario)? signin,
     TResult Function(
             String nomeCompleto, String emailUsuario, String senhaUsuario)?
-        signin,
-    TResult Function(String emailUsuario, String senhaUsuario)? signup,
+        signup,
     TResult Function(String nomeCompleto, String emailUsuario, String token)?
         authenticated,
     required TResult orElse(),
@@ -680,8 +680,8 @@ class _$LoggableAuthenticated implements LoggableAuthenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoggableSignup value) signin,
-    required TResult Function(LoggableSignin value) signup,
+    required TResult Function(LoggableSignin value) signin,
+    required TResult Function(LoggableSignup value) signup,
     required TResult Function(LoggableAuthenticated value) authenticated,
   }) {
     return authenticated(this);
@@ -690,8 +690,8 @@ class _$LoggableAuthenticated implements LoggableAuthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
     TResult Function(LoggableAuthenticated value)? authenticated,
   }) {
     return authenticated?.call(this);
@@ -700,8 +700,8 @@ class _$LoggableAuthenticated implements LoggableAuthenticated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoggableSignup value)? signin,
-    TResult Function(LoggableSignin value)? signup,
+    TResult Function(LoggableSignin value)? signin,
+    TResult Function(LoggableSignup value)? signup,
     TResult Function(LoggableAuthenticated value)? authenticated,
     required TResult orElse(),
   }) {

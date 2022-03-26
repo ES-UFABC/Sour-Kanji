@@ -22,15 +22,21 @@ class LocalStorageService implements Disposable {
   // ⎩⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎭
 
   LoggableAuthenticated? getLoggableAuthenticated() {
+    // return null;
     if (authBox.isEmpty) return null;
-    final Map<String, dynamic>? data = authBox.getAt(0);
+    final data = authBox.getAt(0);
     if (data == null) return null;
-    return LoggableAuthenticated.fromJson(data);
+    final mapData = Map<String, dynamic>.from(data);
+    return LoggableAuthenticated.fromJson(mapData);
   }
 
   Future<void> saveLoggableAuthenticated(
       LoggableAuthenticated authenticated) async {
-    return authBox.putAt(0, authenticated.toJson());
+    return authBox.put(0, authenticated.toJson());
+    // if (authBox.isEmpty) {
+    // } else {
+    //   return authBox.putAt(0, authenticated.toJson());
+    // }
   }
 
   Future<void> clearLoggableAuthenticated() async {

@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:sourkanji_mobile/presentation/theme/app_colors.dart';
 import 'package:sourkanji_mobile/presentation/theme/app_dimensions.dart';
 import 'package:sourkanji_mobile/presentation/widgets/sk_social_medias.dart';
 import 'package:sourkanji_mobile/shared/extensions/build_context_ext.dart';
 
 class SkBasePage extends StatefulWidget {
-  const SkBasePage({Key? key, this.body}) : super(key: key);
+  const SkBasePage({
+    Key? key,
+    this.body,
+    this.showBack = false,
+    this.onBack,
+  }) : super(key: key);
 
   final Widget? body;
+  final bool showBack;
+  final VoidCallback? onBack;
 
   @override
   State<SkBasePage> createState() => _SkBasePageState();
@@ -22,6 +30,15 @@ class _SkBasePageState extends State<SkBasePage> {
             pinned: true,
             expandedHeight: context.ph(0.12),
             toolbarHeight: kToolbarHeight,
+            leading: widget.showBack
+                ? IconButton(
+                    onPressed: widget.onBack,
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: AppColors.baseFontColor,
+                    ),
+                  )
+                : null,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               titlePadding: EdgeInsets.zero,

@@ -6,6 +6,20 @@ part of 'loggable.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$LoggableSignin _$$LoggableSigninFromJson(Map<String, dynamic> json) =>
+    _$LoggableSignin(
+      emailUsuario: json['emailUsuario'] as String,
+      senhaUsuario: json['senhaUsuario'] as String,
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$LoggableSigninToJson(_$LoggableSignin instance) =>
+    <String, dynamic>{
+      'emailUsuario': instance.emailUsuario,
+      'senhaUsuario': instance.senhaUsuario,
+      'type': instance.$type,
+    };
+
 _$LoggableSignup _$$LoggableSignupFromJson(Map<String, dynamic> json) =>
     _$LoggableSignup(
       nomeCompleto: json['nomeCompleto'] as String,
@@ -17,20 +31,6 @@ _$LoggableSignup _$$LoggableSignupFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$LoggableSignupToJson(_$LoggableSignup instance) =>
     <String, dynamic>{
       'nomeCompleto': instance.nomeCompleto,
-      'emailUsuario': instance.emailUsuario,
-      'senhaUsuario': instance.senhaUsuario,
-      'type': instance.$type,
-    };
-
-_$LoggableSignin _$$LoggableSigninFromJson(Map<String, dynamic> json) =>
-    _$LoggableSignin(
-      emailUsuario: json['emailUsuario'] as String,
-      senhaUsuario: json['senhaUsuario'] as String,
-      $type: json['type'] as String?,
-    );
-
-Map<String, dynamic> _$$LoggableSigninToJson(_$LoggableSignin instance) =>
-    <String, dynamic>{
       'emailUsuario': instance.emailUsuario,
       'senhaUsuario': instance.senhaUsuario,
       'type': instance.$type,

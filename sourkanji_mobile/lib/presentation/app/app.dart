@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:sourkanji_mobile/domain/services/session_service.dart';
 import 'package:sourkanji_mobile/presentation/theme/app_theme.dart';
 
 import 'app_module.dart';
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         restorationScopeId: 'app',
+        scaffoldMessengerKey: SessionService().scaffoldMessengerKey,
         // localizationsDelegates: const [
         //   AppLocalizations.delegate,
         //   GlobalMaterialLocalizations.delegate,
