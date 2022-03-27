@@ -47,6 +47,11 @@ public class UsuarioController {
 	public ResponseEntity<List<UsuarioModel>> getByNomeCompleto(@PathVariable String nomeCompleto){
 		return ResponseEntity.ok(repository.findAllByNomeCompletoContainingIgnoreCase(nomeCompleto));
 	}
+
+	@GetMapping("usuario/{emailUsuario}")
+	public ResponseEntity<Optional<UsuarioModel>> getByEmail(@PathVariable String emailUsuario){
+		return ResponseEntity.ok(repository.findByEmailUsuario(emailUsuario));
+	}
 	
 //	@PostMapping
 //	public ResponseEntity<UsuarioModel> post (@RequestBody UsuarioModel usuario) {
