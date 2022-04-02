@@ -35,8 +35,8 @@ public class UserDeckController {
 		}
 		
 		@PutMapping
-		public ResponseEntity<SourKanjiModel> put (@RequestBody SourKanjiModel postagem) {
-			return ResponseEntity.ok(repository.save(postagem));
+		public ResponseEntity<SourKanjiModel> put (@RequestBody SourKanjiModel card) {
+			return ResponseEntity.ok(repository.save(card));
 		}
 		
 }

@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.deveducation.aspas.model.ComentarioModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,23 +21,28 @@ public class SourKanjiModel extends Deck{
 	private Long idCard;
 
 
-	@Column
-	@OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"usuario", "card"})
-		private List<SourKanjiModel> card;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<SourKanjiModel> card;
 
 	public Long getIdPostagem() {
 		return idCard;
 	}
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
 	private List<CardModel> cardListKanji;
 	
-	@Column
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
 	private List<CardModel> cardListVocabulary;
 	
-	@Column
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
 	private List<CardModel> cardListPhrase;
 	
-	@Column
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
 	private List<CardModel> cardListVerb;
 	
 	public String getDeckName() {
