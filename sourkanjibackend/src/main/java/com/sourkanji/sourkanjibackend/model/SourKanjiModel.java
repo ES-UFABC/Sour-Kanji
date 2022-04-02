@@ -2,16 +2,43 @@ package com.sourkanji.sourkanjibackend.model;
 
 import java.util.List;
 
-public class SourKanjikModel extends Deck{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	public SourKanjikModel(String deckName) {
+@Entity
+@Table(name = "tb_card")
+public class SourKanjiModel extends Deck{
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idCard;
+
+	public SourKanjiModel(String deckName) {
 		super(deckName);
 		// TODO Auto-generated constructor stub
 	}
 
+	public Long getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(Long idCard) {
+		this.idCard = idCard;
+	}
+	@Column
 	private List<CardModel> cardListKanji;
+	
+	@Column
 	private List<CardModel> cardListVocabulary;
+	
+	@Column
 	private List<CardModel> cardListPhrase;
+	
+	@Column
 	private List<CardModel> cardListVerb;
 	
 	public String getDeckName() {

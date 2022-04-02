@@ -24,13 +24,14 @@ public abstract class Deck {
 		private Time Time;
 		
 		
-		public Deck() {
-			super();
-		}
 		public Deck(String deckName) {
 			super();
 			this.deckName = deckName;
 		}
+		public Deck() {
+			super();
+		}
+
 		public String getDeckName() {
 			return deckName;
 		}
@@ -60,6 +61,14 @@ public abstract class Deck {
 		}
 		public void setTime(Time time) {
 			Time = time;
+		}
+		@Override
+		public String toString() {
+			return "Deck [deckName=" + deckName + ", cardList=" + cardList + ", learnFrequency=" + learnFrequency
+					+ ", reviewFrequency=" + reviewFrequency + ", Time=" + Time + ", getDeckName()=" + getDeckName()
+					+ ", getCardList()=" + getCardList() + ", getLearnFrequency()=" + getLearnFrequency()
+					+ ", getReviewFrequency()=" + getReviewFrequency() + ", getTime()=" + getTime() + ", getClass()="
+					+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 		}
 	
 }
