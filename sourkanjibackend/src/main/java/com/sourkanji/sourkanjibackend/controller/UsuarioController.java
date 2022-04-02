@@ -1,7 +1,6 @@
 package com.sourkanji.sourkanjibackend.controller;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sourkanji.sourkanjibackend.model.UserLoginModel;
-import com.sourkanji.sourkanjibackend.model.UsuarioModel;
+import com.sourkanji.sourkanjibackend.model.Usuario;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
 import com.sourkanji.sourkanjibackend.service.UsuarioService;
 
@@ -33,34 +31,28 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	
 	@GetMapping
-	public ResponseEntity<List<UsuarioModel>> getAll(){
+	public ResponseEntity<List<Usuario>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<UsuarioModel> getById(@PathVariable Long id) {
+	public ResponseEntity<Usuario> getById(@PathVariable Long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/usuario/{nomeCompleto}")
-	public ResponseEntity<List<UsuarioModel>> getByNomeCompleto(@PathVariable String nomeCompleto){
+	public ResponseEntity<List<Usuario>> getByNomeCompleto(@PathVariable String nomeCompleto){
 		return ResponseEntity.ok(repository.findAllByNomeCompletoContainingIgnoreCase(nomeCompleto));
 	}
 
 	@GetMapping("usuario/{emailUsuario}")
-	public ResponseEntity<Optional<UsuarioModel>> getByEmail(@PathVariable String emailUsuario){
+	public ResponseEntity<Optional<Usuario>> getByEmail(@PathVariable String emailUsuario){
 		return ResponseEntity.ok(repository.findByEmailUsuario(emailUsuario));
 	}
 	
-//	@PostMapping
-//	public ResponseEntity<UsuarioModel> post (@RequestBody UsuarioModel usuario) {
-//		return ResponseEntity.status(HttpStatus.CREATED)
-//				.body(repository.save(usuario));
-//	}
-	
 	@PutMapping
-	public ResponseEntity<UsuarioModel> put (@RequestBody UsuarioModel usuario) {
+	public ResponseEntity<Usuario> put (@RequestBody Usuario usuario) {
 		return ResponseEntity.ok(repository.save(usuario));
 	}
 	
@@ -76,8 +68,8 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<UsuarioModel> Post(@RequestBody UsuarioModel usuario) {
-		Optional<UsuarioModel> user = usuarioService.CadastrarUsuario(usuario);
+	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
+		Optional<Usuario> user = usuarioService.CadastrarUsuario(usuario);
 		try {
 			return ResponseEntity.ok(user.get());
 		} catch (Exception e) {

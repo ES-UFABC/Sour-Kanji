@@ -5,11 +5,11 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.sourkanji.sourkanjibackend.model.UsuarioModel;
+import com.sourkanji.sourkanjibackend.model.Usuario;
 
-public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
-	public List<UsuarioModel> findAllByNomeCompletoContainingIgnoreCase(String nomeCompleto);
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+	public List<Usuario> findAllByNomeCompletoContainingIgnoreCase(String nomeCompleto);
 
-	public Optional<UsuarioModel> findByEmailUsuario(String emailUsuario);
+	public Optional<Usuario> findByEmailUsuario(String emailUsuario);
 
 }

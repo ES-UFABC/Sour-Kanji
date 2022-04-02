@@ -1,14 +1,16 @@
 package com.sourkanji.sourkanjibackend.model;
-
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+//TODO: decidir na próxima sprint: 
+// se a performance será uma funcionalidade dentro deck do Sour Kanji ou do 
+// usuário em geral, e como implementar, ignorar por enquanto.
+
 @Entity
 @Table(name = "tb_perfomance")
-public class PerfomanceModel {
+public class Performance {
 
 	@Column
 	private String level;
@@ -17,7 +19,6 @@ public class PerfomanceModel {
 	private String accuracy;
 	
 	@Column
-
 	private int speed;
 	
 	@Column

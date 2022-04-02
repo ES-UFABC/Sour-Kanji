@@ -1,7 +1,7 @@
 package com.sourkanji.sourkanjibackend.controller;
 
 import com.sourkanji.sourkanjibackend.model.UserLoginModel;
-import com.sourkanji.sourkanjibackend.model.UsuarioModel;
+import com.sourkanji.sourkanjibackend.model.Usuario;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ class IntegrationTests {
 
     @Test
     public void testIntegration() {
-        UsuarioModel usuario = new UsuarioModel();
+        Usuario usuario = new Usuario();
         usuario.setNomeCompleto("Nome Sobrenome");
         usuario.setEmailUsuario("teste@gmail.com");
         usuario.setSenhaUsuario("12345");
@@ -32,7 +32,7 @@ class IntegrationTests {
         user.setSenhaUsuario("12345");
 
         usuarioController.Post(usuario);
-        UsuarioModel usuarioResultado = usuarioController.getByEmail("teste@gmail.com").getBody().get();
+        Usuario usuarioResultado = usuarioController.getByEmail("teste@gmail.com").getBody().get();
         assertEquals("Nome Sobrenome", usuarioResultado.getNomeCompleto());
         assertEquals("teste@gmail.com", usuarioResultado.getEmailUsuario());
 

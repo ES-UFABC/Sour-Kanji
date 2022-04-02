@@ -3,7 +3,7 @@ package com.sourkanji.sourkanjibackend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sourkanji.sourkanjibackend.model.UserLoginModel;
-import com.sourkanji.sourkanjibackend.model.UsuarioModel;
+import com.sourkanji.sourkanjibackend.model.Usuario;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
 import java.nio.charset.Charset;
 import java.util.Optional;
@@ -16,7 +16,7 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 
-	public Optional<UsuarioModel> CadastrarUsuario(UsuarioModel usuario) {
+	public Optional<Usuario> CadastrarUsuario(Usuario usuario) {
 		if(repository.findByEmailUsuario(usuario.getEmailUsuario()).isPresent())
 			return null;
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -27,7 +27,7 @@ public class UsuarioService {
  
 	public Optional<UserLoginModel> Logar(Optional<UserLoginModel> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<UsuarioModel> usuario = repository.findByEmailUsuario(user.get().getEmailUsuario());
+		Optional<Usuario> usuario = repository.findByEmailUsuario(user.get().getEmailUsuario());
 		if (usuario.isPresent()) {
 			if (encoder.matches(user.get().getSenhaUsuario(), usuario.get().getSenhaUsuario())) {
 				String auth = user.get().getEmailUsuario() + ":" + user.get().getSenhaUsuario();

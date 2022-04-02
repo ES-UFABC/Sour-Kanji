@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sourkanji.sourkanjibackend.model.SourKanjiModel;
-import com.sourkanji.sourkanjibackend.repository.SourKanjiRepository;
+import com.sourkanji.sourkanjibackend.model.SourKanji;
+import com.sourkanji.sourkanjibackend.repository.DeckRepository;
 
 @RestController
 @RequestMapping("/home")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class UserDeckController {
+public class DeckController {
 
 	@Autowired
-	private SourKanjiRepository repository;
+	private DeckRepository repository;
 
 		@DeleteMapping("/{id}")
 		public void removeCard(@PathVariable Long id) {
@@ -29,13 +29,13 @@ public class UserDeckController {
 		}
 		
 		@PostMapping
-		public ResponseEntity<SourKanjiModel> post (@RequestBody SourKanjiModel postagem) {
+		public ResponseEntity<SourKanji> post (@RequestBody SourKanji postagem) {
 			return ResponseEntity.status(HttpStatus.CREATED)
 					.body(repository.save(postagem));
 		}
 		
 		@PutMapping
-		public ResponseEntity<SourKanjiModel> put (@RequestBody SourKanjiModel postagem) {
+		public ResponseEntity<SourKanji> put (@RequestBody SourKanji postagem) {
 			return ResponseEntity.ok(repository.save(postagem));
 		}
 		

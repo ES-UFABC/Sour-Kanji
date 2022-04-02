@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sourkanji.sourkanjibackend.model.SourKanji;
 
-public interface SourKanjiRepository extends JpaRepository<SourKanji,Long> {
+public interface DeckRepository extends JpaRepository<SourKanji,Long> {
 
 	//void deleteById(Long id);
 
