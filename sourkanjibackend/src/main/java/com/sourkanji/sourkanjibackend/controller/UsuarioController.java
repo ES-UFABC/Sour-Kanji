@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sourkanji.sourkanjibackend.model.UserLoginModel;
 import com.sourkanji.sourkanjibackend.model.Usuario;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
 import com.sourkanji.sourkanjibackend.service.UsuarioService;
@@ -62,7 +61,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/logar")
-	public ResponseEntity<UserLoginModel> Autentication(@RequestBody Optional<UserLoginModel> user) {
+	public ResponseEntity<Usuario> Autentication(@RequestBody Optional<Usuario> user) {
 		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}

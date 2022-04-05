@@ -36,6 +36,8 @@ public class Usuario {
 	@Column
 	private String profilePicture;
 
+	private String token;
+
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
@@ -88,12 +90,12 @@ public class Usuario {
 		return null;
 	}
 
-	// public String getToken() {
-	// 	return token;
-	// }
+	public String getToken() {
+	 	return token;
+	}
 
-	// public void setToken(String token) {
-	// 	this.token = token;
-	// }
+	public void setToken(String token) {
+	 	this.token = token;
+	}
 
 }

@@ -1,6 +1,5 @@
 package com.sourkanji.sourkanjibackend.controller;
 
-import com.sourkanji.sourkanjibackend.model.UserLoginModel;
 import com.sourkanji.sourkanjibackend.model.Usuario;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,22 +22,22 @@ class IntegrationTests {
     @Test
     public void testIntegration() {
         Usuario usuario = new Usuario();
-        usuario.setNomeCompleto("Nome Sobrenome");
+        usuario.setNomeUsuario("Nome Sobrenome");
         usuario.setEmailUsuario("teste@gmail.com");
         usuario.setSenhaUsuario("12345");
 
-        UserLoginModel user = new UserLoginModel();
+        Usuario user = new Usuario();
         user.setEmailUsuario("teste@gmail.com");
         user.setSenhaUsuario("12345");
 
         usuarioController.Post(usuario);
         Usuario usuarioResultado = usuarioController.getByEmail("teste@gmail.com").getBody().get();
-        assertEquals("Nome Sobrenome", usuarioResultado.getNomeCompleto());
+        assertEquals("Nome Sobrenome", usuarioResultado.getNomeUsuario());
         assertEquals("teste@gmail.com", usuarioResultado.getEmailUsuario());
 
-        ResponseEntity<UserLoginModel> response = usuarioController.Autentication(Optional.of(user));
+        ResponseEntity<Usuario> response = usuarioController.Autentication(Optional.of(user));
         assertEquals(200, response.getStatusCode().value());
-        assertEquals("Nome Sobrenome", response.getBody().getNomeCompleto());
+        assertEquals("Nome Sobrenome", response.getBody().getNomeUsuario());
         assertEquals("teste@gmail.com", response.getBody().getEmailUsuario());
 
         long id = usuarioController.getByEmail("teste@gmail.com").getBody().get().getIdUsuario();
