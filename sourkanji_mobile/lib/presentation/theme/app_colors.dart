@@ -7,6 +7,9 @@ class AppColors {
 
   static const Color baseFontColor = Color(0xFF386363);
 
+  static const Color yellowBackground = Color(0xFFFBFCBF);
+  static const Color redBackground = Color(0xFFFFCBD3);
+
   static const Color alertRed = Color(0xffF45D49);
 
   static const Color greyMid = Color(0xff54656D);

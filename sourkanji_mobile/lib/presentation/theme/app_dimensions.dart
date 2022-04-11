@@ -13,5 +13,5 @@ class AppDimensions {
   static const double basePagePadding = 32;
 
   // Radius
-  static const double mdRadius = 5;
+  static const double mdRadius = 10;
 }

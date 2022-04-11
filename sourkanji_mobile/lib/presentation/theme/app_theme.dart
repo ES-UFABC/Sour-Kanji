@@ -4,6 +4,7 @@ import 'package:sourkanji_mobile/shared/extensions/msp_extensions.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_dimensions.dart';
 
 part 'buttons_theme.dart';
 part 'text_theme.dart';
@@ -26,6 +27,7 @@ class AppTheme {
       inputDecorationTheme: _InputTheme(),
       // sliderTheme: _SliderTheme(),
       elevatedButtonTheme: _ElevatedButtonThemeData(),
+      outlinedButtonTheme: _OutlineButtonThemeData(),
     );
     return _theme!;
   }

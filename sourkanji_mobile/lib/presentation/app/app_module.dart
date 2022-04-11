@@ -11,6 +11,7 @@ import 'package:sourkanji_mobile/presentation/index/index_module.dart';
 import 'package:sourkanji_mobile/presentation/signin/signin_module.dart';
 import 'package:sourkanji_mobile/presentation/signup/signup_module.dart';
 import 'package:sourkanji_mobile/presentation/splash/splash_module.dart';
+import 'package:sourkanji_mobile/presentation/support/support_module.dart';
 
 class AppModule extends Module {
   @override
@@ -38,6 +39,7 @@ class AppModule extends Module {
         ModuleRoute(IndexModule.path, module: IndexModule()),
         ModuleRoute(SignupModule.path, module: SignupModule()),
         ModuleRoute(AboutModule.path, module: AboutModule()),
+        ModuleRoute(SupportModule.path, module: SupportModule()),
         ModuleRoute(HomeModule.path, module: HomeModule()),
       ];
 }
