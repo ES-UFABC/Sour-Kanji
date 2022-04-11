@@ -23,7 +23,7 @@ public class Usuario {
 
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({ "usuario", "card" })
+	@JsonIgnoreProperties({ "usuario" })
 	private List<Card> card;
 	
 	@Column

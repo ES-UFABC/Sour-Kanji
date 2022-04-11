@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "deck")
 public class Deck {
@@ -23,6 +25,7 @@ public class Deck {
 	private String deckName;
 
 	@OneToMany(mappedBy = "deck")
+	@JsonIgnoreProperties({ "deck" })
 	private List<Card> cardList;
 
 	@Column
