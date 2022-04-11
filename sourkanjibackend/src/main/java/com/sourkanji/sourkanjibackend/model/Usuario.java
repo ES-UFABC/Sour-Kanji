@@ -1,11 +1,15 @@
 package com.sourkanji.sourkanjibackend.model;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -13,11 +17,15 @@ import com.sun.istack.NotNull;
 public class Usuario {
 
 	//private String token;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;
 
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({ "usuario", "card" })
+	private List<Card> card;
+	
 	@Column
 	@NotNull
 	private String nomeUsuario;
@@ -86,9 +94,9 @@ public class Usuario {
 		this.profilePicture = profilePicture;
 	}
 
-	public List<Performance> shareProfilePerfomance(List<Performance> performanceModel){
-		return null;
-	}
+	// public List<Performance> shareProfilePerfomance(List<Performance> performanceModel){
+	// 	return null;
+	// }
 
 	public String getToken() {
 	 	return token;

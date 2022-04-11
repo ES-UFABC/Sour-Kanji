@@ -2,6 +2,7 @@ package com.sourkanji.sourkanjibackend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.sourkanji.sourkanjibackend.model.Login;
 import com.sourkanji.sourkanjibackend.model.Usuario;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
 import java.nio.charset.Charset;
@@ -21,10 +22,11 @@ public class UsuarioService {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String senhaEncoder = encoder.encode(usuario.getSenhaUsuario());
 		usuario.setSenhaUsuario(senhaEncoder);
+		
 		return Optional.of(repository.save(usuario));
 	}
  
-	public Optional<Usuario> Logar(Optional<Usuario> user) {
+	public Optional<Login> Logar(Optional<Login> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<Usuario> usuario = repository.findByEmailUsuario(user.get().getEmailUsuario());
 		if (usuario.isPresent()) {

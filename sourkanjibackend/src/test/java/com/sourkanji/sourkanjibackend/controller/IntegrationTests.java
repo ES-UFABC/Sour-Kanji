@@ -1,5 +1,5 @@
 package com.sourkanji.sourkanjibackend.controller;
-
+import com.sourkanji.sourkanjibackend.model.Login;
 import com.sourkanji.sourkanjibackend.model.Usuario;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,13 +20,17 @@ class IntegrationTests {
     UsuarioController usuarioController;
 
     @Test
+    public void contextLoads() {
+    }
+
+    @Test
     public void testIntegration() {
         Usuario usuario = new Usuario();
         usuario.setNomeUsuario("Nome Sobrenome");
         usuario.setEmailUsuario("teste@gmail.com");
         usuario.setSenhaUsuario("12345");
 
-        Usuario user = new Usuario();
+        Login user = new Login();
         user.setEmailUsuario("teste@gmail.com");
         user.setSenhaUsuario("12345");
 
@@ -35,7 +39,7 @@ class IntegrationTests {
         assertEquals("Nome Sobrenome", usuarioResultado.getNomeUsuario());
         assertEquals("teste@gmail.com", usuarioResultado.getEmailUsuario());
 
-        ResponseEntity<Usuario> response = usuarioController.Autentication(Optional.of(user));
+        ResponseEntity<Login> response = usuarioController.Autentication(Optional.of(user));
         assertEquals(200, response.getStatusCode().value());
         assertEquals("Nome Sobrenome", response.getBody().getNomeUsuario());
         assertEquals("teste@gmail.com", response.getBody().getEmailUsuario());

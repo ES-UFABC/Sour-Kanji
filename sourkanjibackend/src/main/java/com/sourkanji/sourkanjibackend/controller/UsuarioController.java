@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sourkanji.sourkanjibackend.model.Login;
 import com.sourkanji.sourkanjibackend.model.Usuario;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
 import com.sourkanji.sourkanjibackend.service.UsuarioService;
-
 
 @RestController
 @RequestMapping("/usuario")
@@ -29,20 +30,15 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@GetMapping
-	public ResponseEntity<List<Usuario>> getAll(){
-		return ResponseEntity.ok(repository.findAll());
-	}
-	
 	@GetMapping("/{id}")
 	public ResponseEntity<Usuario> getById(@PathVariable Long id) {
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+		return repository.findById(id).map(usuario -> ResponseEntity.ok(usuario))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/usuario/{nomeCompleto}")
-	public ResponseEntity<List<Usuario>> getByNomeCompleto(@PathVariable String nomeCompleto){
-		return ResponseEntity.ok(repository.findAllByNomeCompletoContainingIgnoreCase(nomeCompleto));
+	@GetMapping("/usuario/{nomeUsuario}")
+	public ResponseEntity<Optional<Usuario>> getByNomeCompleto(@PathVariable String nomeCompleto){
+		return ResponseEntity.ok(repository.findByNomeUsuarioContainingIgnoreCase(nomeCompleto));
 	}
 
 	@GetMapping("usuario/{emailUsuario}")
@@ -61,7 +57,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/logar")
-	public ResponseEntity<Usuario> Autentication(@RequestBody Optional<Usuario> user) {
+	public ResponseEntity<Login> Autentication(@RequestBody Optional<Login> user) {
 		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}

@@ -8,8 +8,8 @@ import javax.persistence.Table;
 // se a performance será uma funcionalidade dentro deck do Sour Kanji ou do 
 // usuário em geral, e como implementar, ignorar por enquanto.
 
-@Entity
-@Table(name = "tb_perfomance")
+// @Entity
+// @Table(name = "tb_perfomance")
 public class Performance {
 
 	@Column
