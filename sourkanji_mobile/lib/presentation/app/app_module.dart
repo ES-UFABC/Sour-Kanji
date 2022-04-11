@@ -7,6 +7,7 @@ import 'package:sourkanji_mobile/domain/services/session_service.dart';
 import 'package:sourkanji_mobile/infrastructure/auth/auth_repository.dart';
 import 'package:sourkanji_mobile/presentation/home/home_module.dart';
 import 'package:sourkanji_mobile/presentation/index/index_module.dart';
+import 'package:sourkanji_mobile/presentation/kanji/kanji_module.dart';
 import 'package:sourkanji_mobile/presentation/signin/signin_module.dart';
 import 'package:sourkanji_mobile/presentation/signup/signup_module.dart';
 import 'package:sourkanji_mobile/presentation/splash/splash_module.dart';
@@ -37,5 +38,6 @@ class AppModule extends Module {
         ModuleRoute(HomeModule.path, module: HomeModule()),
         ModuleRoute(SigninModule.path, module: SigninModule()),
         ModuleRoute(SignupModule.path, module: SignupModule()),
+        ModuleRoute(KanjiModule.path, module: KanjiModule()),
       ];
 }
