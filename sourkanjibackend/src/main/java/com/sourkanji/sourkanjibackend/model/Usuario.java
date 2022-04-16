@@ -21,11 +21,18 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;
 
-	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({ "usuario" })
-	private List<Card> card;
+	private List<Deck> decks;
 	
+	public List<Deck> getDecks() {
+		return decks;
+	}
+
+	public void setDecks(List<Deck> decks) {
+		this.decks = decks;
+	}
+
 	@Column
 	@NotNull
 	private String nomeUsuario;

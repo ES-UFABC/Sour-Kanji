@@ -12,70 +12,67 @@ import javax.persistence.Table;
 // @Table(name = "tb_perfomance")
 public class Performance {
 
-	@Column
-	private String level;
+	// @Column
+	// private String level;
 	
-	@Column
-	private String accuracy;
+	// @Column
+	// private String accuracy;
 	
-	@Column
-	private int speed;
+	// @Column
+	// private int speed;
 	
-	@Column
-	private int streak;
+	// @Column
+	// private int streak;
 	
-	
-	@Column
-	private List<String> achivement;
+	// // @Column
+	// // private List<String> achivement;
+
+	// public String getLevel() {
+	// 	return level;
+	// }
+
+	// public void setLevel(String level) {
+	// 	this.level = level;
+	// }
 
 
-	public String getLevel() {
-		return level;
-	}
+	// public String getAccuracy() {
+	// 	return accuracy;
+	// }
 
 
-	public void setLevel(String level) {
-		this.level = level;
-	}
+	// public void setAccuracy(String accuracy) {
+	// 	this.accuracy = accuracy;
+	// }
 
 
-	public String getAccuracy() {
-		return accuracy;
-	}
+	// public int getSpeed() {
+	// 	return speed;
+	// }
 
 
-	public void setAccuracy(String accuracy) {
-		this.accuracy = accuracy;
-	}
+	// public void setSpeed(int speed) {
+	// 	this.speed = speed;
+	// }
 
 
-	public int getSpeed() {
-		return speed;
-	}
+	// public int getStreak() {
+	// 	return streak;
+	// }
 
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
+	// public void setStreak(int streak) {
+	// 	this.streak = streak;
+	// }
 
 
-	public int getStreak() {
-		return streak;
-	}
+	// public List<String> getAchivement() {
+	// 	return achivement;
+	// }
 
 
-	public void setStreak(int streak) {
-		this.streak = streak;
-	}
-
-
-	public List<String> getAchivement() {
-		return achivement;
-	}
-
-
-	public void setAchivement(List<String> achivement) {
-		this.achivement = achivement;
-	}
+	// public void setAchivement(List<String> achivement) {
+	// 	this.achivement = achivement;
+	// }
 	
 }

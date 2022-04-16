@@ -1,6 +1,9 @@
 package com.sourkanji.sourkanjibackend.controller;
-import java.util.List;
 import java.util.Optional;
+import com.sourkanji.sourkanjibackend.model.Login;
+import com.sourkanji.sourkanjibackend.model.Usuario;
+import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
+import com.sourkanji.sourkanjibackend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.sourkanji.sourkanjibackend.model.Login;
-import com.sourkanji.sourkanjibackend.model.Usuario;
-import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
-import com.sourkanji.sourkanjibackend.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")

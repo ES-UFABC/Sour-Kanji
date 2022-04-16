@@ -2,9 +2,9 @@ package com.sourkanji.sourkanjibackend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.sourkanji.sourkanjibackend.model.SourKanji;
+import com.sourkanji.sourkanjibackend.model.SourKanjiDeck;
 
-public interface DeckRepository extends JpaRepository<SourKanji,Long> {
+public interface DeckRepository extends JpaRepository<SourKanjiDeck,Long> {
 
 	//void deleteById(Long id);
 

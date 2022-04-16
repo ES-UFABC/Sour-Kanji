@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sourkanji.sourkanjibackend.model.SourKanji;
+import com.sourkanji.sourkanjibackend.model.SourKanjiDeck;
 import com.sourkanji.sourkanjibackend.repository.DeckRepository;
 
 @RestController
@@ -29,13 +29,13 @@ public class DeckController {
 		}
 		
 		@PostMapping
-		public ResponseEntity<SourKanji> post (@RequestBody SourKanji postagem) {
+		public ResponseEntity<SourKanjiDeck> post (@RequestBody SourKanjiDeck postagem) {
 			return ResponseEntity.status(HttpStatus.CREATED)
 					.body(repository.save(postagem));
 		}
 		
 		@PutMapping
-		public ResponseEntity<SourKanji> put (@RequestBody SourKanji postagem) {
+		public ResponseEntity<SourKanjiDeck> put (@RequestBody SourKanjiDeck postagem) {
 			return ResponseEntity.ok(repository.save(postagem));
 		}
 		

@@ -5,7 +5,6 @@ public class Login {
     private String emailUsuario;
     private String senhaUsuario;
     private String token;
-
     
     public String getNomeUsuario() {
         return nomeUsuario;

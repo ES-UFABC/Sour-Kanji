@@ -1,11 +1,10 @@
 package com.sourkanji.sourkanjibackend.model;
 
 public class Cadastro {
-    private String nomeCompleto;
+    private String nomeUsuario;
     private String emailUsuario;
     private String senhaUsuario;
     private String profilePicture;
-    
     private String confirmacaoSenhaUsuario;
 
     public String getConfirmacaoSenhaUsuario() {
@@ -16,12 +15,12 @@ public class Cadastro {
         this.confirmacaoSenhaUsuario = confirmacaoSenhaUsuario;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
 
     public String getEmailUsuario() {
