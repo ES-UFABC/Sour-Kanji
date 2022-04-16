@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sourkanji_mobile/domain/auth/auth_failure.dart';
 import 'package:sourkanji_mobile/domain/auth/i_auth_repository.dart';
 import 'package:sourkanji_mobile/domain/auth/loggable.dart';
 import 'package:sourkanji_mobile/domain/services/local_storage_service.dart';
+import 'package:sourkanji_mobile/presentation/index/index_module.dart';
 import 'package:sourkanji_mobile/shared/utils/app_logger.dart';
 
 class AuthService implements Disposable {
@@ -24,6 +26,22 @@ class AuthService implements Disposable {
         return none();
       },
     );
+  }
+
+  Future<bool> signout() async {
+    try {
+      await Future.wait([
+        _localStorage.clearLoggableAuthenticated(),
+      ]);
+      Modular.to.pushNamedAndRemoveUntil(
+        IndexModule.path,
+        (Route route) => false,
+      );
+      return true;
+    } catch (e) {
+      AppLogger.wtf(e);
+      return false;
+    }
   }
 
   // ⎧⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎫
