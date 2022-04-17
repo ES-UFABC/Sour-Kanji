@@ -2,10 +2,12 @@ package com.sourkanji.sourkanjibackend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.sourkanji.sourkanjibackend.model.SourKanjiDeck;
+import java.util.List;
 
-public interface DeckRepository extends JpaRepository<SourKanjiDeck,Long> {
+import com.sourkanji.sourkanjibackend.model.Deck;
 
-	//void deleteById(Long id);
+public interface DeckRepository extends JpaRepository<Deck,Long> {
+
+	List<Deck> findAllByUsuarioIdUsuario(Long id);
 
 }
