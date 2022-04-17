@@ -1,7 +1,11 @@
 package com.sourkanji.sourkanjibackend.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import com.sourkanji.sourkanjibackend.model.Deck;
 import com.sourkanji.sourkanjibackend.model.Login;
@@ -10,18 +14,10 @@ import com.sourkanji.sourkanjibackend.model.SourKanjiDeck;
 import com.sourkanji.sourkanjibackend.model.Usuario;
 import com.sourkanji.sourkanjibackend.repository.UsuarioRepository;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
@@ -37,6 +33,7 @@ public class UsuarioService {
 
 		List<Deck> deckList = new ArrayList<Deck>();
 		SourKanjiDeck sourKanjiDeck = new SourKanjiDeck();
+		sourKanjiDeck.setUsuario(usuario);
 
 		try (BufferedReader br = new BufferedReader(new FileReader("Kanji.csv"))) {
 			String line;
@@ -50,10 +47,12 @@ public class UsuarioService {
 				String story2 = values[5];
 				String story3 = values[6];
 				String vocabulary = values[7];
-				SourKanjiCard sourKanjiCard = new SourKanjiCard(ideogram, meaning, onYomi, kunYomi, mnemonic, vocabulary);
+				SourKanjiCard sourKanjiCard = new SourKanjiCard(ideogram, meaning, onYomi, kunYomi, mnemonic,
+						vocabulary);
+				sourKanjiCard.setDeck(sourKanjiDeck);
 				sourKanjiDeck.getCardList().add(sourKanjiCard);
 			}
-		} catch(Exception e){
+		} catch (Exception e) {
 			System.err.println("Não foi possível adicionar SourKanjiCard.");
 		}
 
@@ -77,7 +76,23 @@ public class UsuarioService {
 			}
 		}
 		return null;
+	}
 
+	public Optional<Long> Autenticar(String token) {
+		String[] auth = token.split(" ");
+		if (!auth[0].equals("Basic"))
+			return Optional.empty();
+		String[] emailPassword = new String(Base64.decodeBase64(auth[1])).split(":");
+		if (emailPassword.length < 2)
+			return Optional.empty();
+		String email = emailPassword[0];
+		String password = emailPassword[1];
+		Optional<Usuario> usuario = repository.findByEmailUsuario(email);
+		if (usuario.isEmpty())
+			return Optional.empty();
+		if (!new BCryptPasswordEncoder().matches(password, usuario.get().getSenhaUsuario()))
+			return Optional.empty();
+		return Optional.of(usuario.get().getIdUsuario());
 	}
 
 }

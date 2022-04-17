@@ -1,6 +1,15 @@
 package com.sourkanji.sourkanjibackend.controller;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Optional;
+
 import com.sourkanji.sourkanjibackend.model.Login;
 import com.sourkanji.sourkanjibackend.model.Usuario;
+import com.sourkanji.sourkanjibackend.service.UsuarioService;
+
 import org.hibernate.Hibernate;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,17 +19,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class IntegrationTests {
 
     @Autowired
     UsuarioController usuarioController;
+
+    @Autowired
+    DeckController deckController;
+
+    @Autowired
+	private UsuarioService usuarioService;
 
     @Test
     public void contextLoads() {
@@ -52,9 +62,14 @@ class IntegrationTests {
         assertEquals("Nome Sobrenome", response.getBody().getNomeUsuario());
         assertEquals("teste@gmail.com", response.getBody().getEmailUsuario());
 
+        String token = response.getBody().getToken();
+        assertNotNull(token);
+        assertTrue(usuarioService.Autenticar(token).isPresent());
+
+        assertEquals(deckController.getDecks(token).size(), 1);
+
         long id = usuarioController.getByEmail("teste@gmail.com").getBody().get().getIdUsuario();
         usuarioController.delete(id);
         assertEquals(Optional.empty(), usuarioController.getByEmail("teste@gmail.com").getBody());
     }
-
 }
