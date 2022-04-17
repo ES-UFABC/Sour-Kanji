@@ -1,6 +1,7 @@
 package com.sourkanji.sourkanjibackend.model;
 import java.sql.Blob;
 import java.sql.Time;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCard;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Deck deck;
 
     @Column

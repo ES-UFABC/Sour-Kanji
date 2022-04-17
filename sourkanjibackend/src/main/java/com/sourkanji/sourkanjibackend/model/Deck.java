@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Deck {
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Usuario usuario;
 
 	@Id
