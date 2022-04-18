@@ -88,7 +88,7 @@ public class UsuarioService {
 		String email = emailPassword[0];
 		String password = emailPassword[1];
 		Optional<Usuario> usuario = repository.findByEmailUsuario(email);
-		if (usuario.isEmpty())
+		if (!usuario.isPresent())
 			return Optional.empty();
 		if (!new BCryptPasswordEncoder().matches(password, usuario.get().getSenhaUsuario()))
 			return Optional.empty();

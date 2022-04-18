@@ -1,5 +1,6 @@
 package com.sourkanji.sourkanjibackend.controller;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +30,8 @@ public class DeckController {
 	@GetMapping("/")
 	public List<Deck> getDecks(@RequestHeader("Authorization") String token) {
 		Optional<Long> userId = usuarioService.Autenticar(token);
-		if (userId.isEmpty())
-			return List.of();
+		if (!userId.isPresent())
+			return Collections.emptyList();
 		return repository.findAllByUsuarioIdUsuario(userId.get());
 	}
 
