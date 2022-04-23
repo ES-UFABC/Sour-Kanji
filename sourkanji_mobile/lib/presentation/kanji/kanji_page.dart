@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sourkanji_mobile/presentation/kanji/kanji_controller.dart';
@@ -22,17 +24,18 @@ class _KanjiPageState extends ModularState<KanjiPage, KanjiControler> {
       body: Padding(
         padding: const EdgeInsets.all(AppDimensions.basePagePadding),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 5),
             Text('KANJI',
                 style: context.textTheme.headline6?.copyWith(
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w700,
                 ),
                 textAlign: TextAlign.right),
             const SizedBox(height: 20),
             Container(
-              width: 297.73,
-              height: 16.23,
+              width: MediaQuery.of(context).size.width,
+              height: 16,
               decoration: BoxDecoration(
                   color: AppColors.primary,
                   border: Border.all(color: AppColors.primary)),
@@ -43,70 +46,107 @@ class _KanjiPageState extends ModularState<KanjiPage, KanjiControler> {
               ),
             ),
             Container(
-                margin: EdgeInsets.fromLTRB(0, 21, 0, 18),
-                width: 297.73,
+                margin: EdgeInsets.symmetric(vertical: 20),
+                width: MediaQuery.of(context).size.width,
                 height: 115.96,
                 decoration: BoxDecoration(
                     border: Border.all(color: AppColors.primary, width: 5)),
                 child: Container(
-                    width: 297.73,
-                    height: 115.96,
+                    width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                         color: AppColors.primary,
                         border: Border.all(
                             color: AppColors.yellowSourKanji, width: 5)),
-                    child: Text(
-                      'Kanji #1:',
-                      style: context.textTheme.headline6?.copyWith(
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.scaffoldBackgroundColor),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Image.asset(
+                                  "assets/images/speaker.png",
+                                  fit: BoxFit.cover,
+                                  width: 10,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            child: Image.asset(
+                              "assets/images/kanji_1.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(right: 24),
+                            child: Image.asset(
+                              "assets/images/arrow.png",
+                              width: 10,
+                            ),
+                          ),
+                        ],
+                      ),
                     ))),
             Container(
-              width: 297.73,
               child: Row(
                 children: [
-                  Container(
+                  Expanded(
                       child: Container(
-                          width: 92.48,
-                          height: 26.67,
                           decoration: BoxDecoration(
                               color: AppColors.lightGreenSourKanji,
                               border: Border.all(color: AppColors.primary)),
-                          child: Text(
-                            'MEANING',
-                            style: context.textTheme.headline6?.copyWith(
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.primary),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 16),
+                            child: Text(
+                              'MEANING',
+                              style: context.textTheme.caption?.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.primary),
+                            ),
                           ))),
-                  Container(
+                  SizedBox(width: 10),
+                  Expanded(
                       child: Container(
-                          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          width: 92.48,
-                          height: 26.67,
                           decoration: BoxDecoration(
                               color: AppColors.yellowSourKanji,
                               border: Border.all(color: AppColors.primary)),
-                          child: Text(
-                            'READING',
-                            style: context.textTheme.headline6?.copyWith(
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.primary),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 16),
+                            child: Text(
+                              'READING',
+                              style: context.textTheme.caption?.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.primary),
+                            ),
                           ))),
-                  Container(
+                  SizedBox(width: 10),
+                  Expanded(
                       child: Container(
-                          width: 92.48,
-                          height: 26.67,
                           decoration: BoxDecoration(
                               color: AppColors.pinkSourKanji,
                               border: Border.all(color: AppColors.primary)),
-                          child: Text(
-                            'PHRASES',
-                            style: context.textTheme.headline6?.copyWith(
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.primary),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 16),
+                            child: Text(
+                              'PHRASES',
+                              style: context.textTheme.caption?.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.primary),
+                            ),
                           )))
                 ],
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 35, left: 35, top: 60),
+              child: Image.asset("assets/images/lemon4x.png"),
             )
           ],
         ),
