@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.sourkanji.sourkanjibackend.model.UsuarioModel;
+import com.sourkanji.sourkanjibackend.model.Usuario;
 
 public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 1L; 
@@ -12,7 +12,7 @@ public class UserDetailsImpl implements UserDetails {
 	private String userName;
 	private String password;
 
-	public UserDetailsImpl(UsuarioModel user) {
+	public UserDetailsImpl(Usuario user) {
 		this.userName = user.getEmailUsuario();
 		this.password = user.getSenhaUsuario();
 	}

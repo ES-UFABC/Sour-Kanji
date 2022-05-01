@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sourkanji_mobile/presentation/theme/app_dimensions.dart';
 import 'package:sourkanji_mobile/shared/extensions/build_context_ext.dart';
 import 'package:sourkanji_mobile/shared/extensions/msp_extensions.dart';
 
@@ -70,7 +71,7 @@ class SkButton extends StatelessWidget {
       onDisabledPressed: onDisabledPressed,
       label: label,
       content: content,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.scaffoldBackgroundColor,
       foregroundColor: AppColors.primary,
       trailingIcon: trailingIcon,
       state: state,
@@ -195,6 +196,13 @@ class SkButton extends StatelessWidget {
                 overlayColor: foregroundColor?.withOpacity(0.2).mspAll(),
                 backgroundColor: backgroundColor?.mspAll(),
                 foregroundColor: foregroundColor?.mspAll(),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(AppDimensions.mdRadius),
+                  side: const BorderSide(
+                    color: AppColors.primary,
+                    width: 3,
+                  ),
+                ).mspAll(),
                 padding:
                     isIconButton ? const EdgeInsets.all(14).mspAll() : null,
               ),

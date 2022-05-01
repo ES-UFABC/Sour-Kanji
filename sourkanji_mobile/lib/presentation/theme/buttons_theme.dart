@@ -11,11 +11,41 @@ class _ElevatedButtonThemeData extends ElevatedButtonThemeData {
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ).mspAll(),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                    .mspAll(),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppDimensions.mdRadius),
+            ).mspAll(),
             minimumSize: const Size(10, 10).mspAll<Size>(),
             elevation: MaterialStateProperty.all<double>(0),
+          ),
+        );
+}
+
+class _OutlineButtonThemeData extends OutlinedButtonThemeData {
+  _OutlineButtonThemeData()
+      : super(
+          style: ButtonStyle(
+            backgroundColor: AppColors.scaffoldBackgroundColor.mspAll(),
+            padding: const EdgeInsets.symmetric(
+              vertical: 14,
+              horizontal: 26,
+            ).mspAll(),
+            foregroundColor:
+                MaterialStateProperty.all<Color>(AppColors.primary),
+            textStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ).mspAll(),
+            overlayColor: AppColors.primary.withOpacity(0.2).mspAll(),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppDimensions.mdRadius),
+              side: const BorderSide(
+                color: AppColors.primary,
+                width: 2,
+              ),
+            ).mspAll(),
+            minimumSize: const Size(10, 10).mspAll<Size>(),
+            elevation: MaterialStateProperty.all<double>(0),
+            side: const BorderSide(color: AppColors.greyAthens).mspAll(),
           ),
         );
 }

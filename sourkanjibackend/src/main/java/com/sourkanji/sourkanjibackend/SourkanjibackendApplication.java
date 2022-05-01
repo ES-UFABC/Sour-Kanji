@@ -9,5 +9,4 @@ public class SourkanjibackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SourkanjibackendApplication.class, args);
 	}
-
 }

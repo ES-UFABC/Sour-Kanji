@@ -15,11 +15,13 @@ class _TextTheme extends TextTheme {
             fontFamily: kFontFamily,
             color: AppColors.baseFontColor,
             fontSize: 18,
+            fontWeight: FontWeight.w400,
           ),
           bodyText2: const TextStyle(
             fontFamily: kFontFamily,
             color: AppColors.baseFontColor,
             fontSize: 18,
+            fontWeight: FontWeight.w400,
           ),
           caption: const TextStyle(
             fontFamily: kFontFamily,

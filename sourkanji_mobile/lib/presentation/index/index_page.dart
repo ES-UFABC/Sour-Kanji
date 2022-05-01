@@ -66,9 +66,7 @@ class _IndexPageState extends ModularState<IndexPage, IndexControler> {
             SkButton(
               label: "ABOUT",
               backgroundColor: AppColors.greySourKanji,
-              onPressed: () {
-                print(Env.baseUrl);
-              },
+              onPressed: controller.about,
             ),
           ],
         ),
