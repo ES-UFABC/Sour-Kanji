@@ -1,0 +1,28 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "sourkanji_mobile",
+            "cwd": "sourkanji_mobile",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "sourkanji_mobile (profile mode)",
+            "cwd": "sourkanji_mobile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "sourkanji_mobile (release mode)",
+            "cwd": "sourkanji_mobile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
