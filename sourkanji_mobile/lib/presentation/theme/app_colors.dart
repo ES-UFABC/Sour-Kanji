@@ -18,4 +18,7 @@ class AppColors {
   static const Color greyIron = Color(0xffD4D8DB);
   static const Color greyAthens = Color(0xffEAECED);
   static const Color greySourKanji = Color(0xffB5B1A5);
+  static const Color yellowSourKanji = Color(0xffFBFCBF);
+  static const Color lightGreenSourKanji = Color(0xffD8FEC7);
+  static const Color pinkSourKanji = Color(0xffFFCBD3);
 }

@@ -59,6 +59,11 @@ class _IndexPageState extends ModularState<IndexPage, IndexControler> {
             ),
             const SizedBox(height: 20),
             SkButton(
+              label: "KANJI",
+              onPressed: controller.kanji,
+            ),
+            const SizedBox(height: 20),
+            SkButton(
               label: "ABOUT",
               backgroundColor: AppColors.greySourKanji,
               onPressed: controller.about,
